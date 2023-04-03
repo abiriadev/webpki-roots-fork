@@ -26,7 +26,7 @@ jobs:
 
       - name: check upstream
         run: |
-          openssl version
+          openssl version -a
           python3 -V
           python3 build.py > newlib.rs
           diff -u src/lib.rs newlib.rs
