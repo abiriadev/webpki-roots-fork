@@ -87,6 +87,10 @@ def calc_spki_hash(cert):
     stdout, _ = proc.communicate(cert.encode('utf-8'))
     stdout = stdout.decode('utf-8')
     assert proc.returncode == 0
+
+    import sys
+    print(stdout, file=sys.stderr)
+
     assert stdout.startswith('SHA256 Fingerprint=')
     hash = stdout.replace('SHA256 Fingerprint=', '').replace(':', '')
     hash = hash.strip()
